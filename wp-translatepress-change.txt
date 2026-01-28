@@ -47,4 +47,30 @@
   }
   window.addEventListener('load', initSwitcher);
 })();
+/** This is the shortened version of the JS
+(function() {
+  let ls = null;
+  
+  function reposition() {
+    if (!ls) return;
+    const isMobile = window.innerWidth <= 792;
+    ['top', 'bottom', 'border-radius'].forEach(p => ls.style.removeProperty(p));
+    if (isMobile) {
+      ls.style.setProperty('top', 'auto', 'important');
+      ls.style.setProperty('bottom', '0', 'important');
+      ls.style.setProperty('border-radius', '5px 5px 0 0', 'important');
+    }
+  }
+  
+  function init() {
+    ls = document.querySelector('#trp-floater-ls');
+    if (ls) reposition();
+  }
+  
+  window.addEventListener('resize', reposition);
+  init();
+  document.readyState === 'loading' && document.addEventListener('DOMContentLoaded', init);
+  window.addEventListener('load', init);
+})();**/
 </script>
+
