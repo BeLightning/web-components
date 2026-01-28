@@ -1,0 +1,50 @@
+<!-- 1. Place this in the <head> section for immediate application -->
+<style>
+@media (max-width: 792px) {
+  #trp-floater-ls.trp-top-left {
+    top: auto !important;
+    bottom: 0 !important;
+    border-radius: 5px 5px 0 0 !important;
+  }
+}
+</style>
+
+//<!-- footer -->// 2. Language switcher: mobile bottom repositioning (≤792px) - backup JS
+<script type="text/javascript">
+
+(function() {
+  let languageSwitcher = null;
+  
+  function repositionSwitcher() {
+    if (!languageSwitcher) return;
+    
+    if (window.innerWidth <= 792) {
+      languageSwitcher.style.setProperty('top', 'auto', 'important');
+      languageSwitcher.style.setProperty('bottom', '0', 'important');
+      languageSwitcher.style.setProperty('border-radius', '5px 5px 0 0', 'important');
+    } else {
+      languageSwitcher.style.removeProperty('top');
+      languageSwitcher.style.removeProperty('bottom');
+      languageSwitcher.style.removeProperty('border-radius');
+    }
+  }
+  
+  function initSwitcher() {
+    languageSwitcher = document.querySelector('#trp-floater-ls');
+    if (languageSwitcher) {
+      repositionSwitcher();
+      return true;
+    }
+    return false;
+  }
+  
+  // Resize listener
+  window.addEventListener('resize', repositionSwitcher);
+  
+  initSwitcher();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSwitcher);
+  }
+  window.addEventListener('load', initSwitcher);
+})();
+</script>
