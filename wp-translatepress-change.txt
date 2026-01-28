@@ -9,7 +9,7 @@
 }
 </style>
 
-//<!-- footer -->// 2. Language switcher: mobile bottom repositioning (≤792px) - backup JS
+//<!-- footer -->// 2. Works without JS. Language switcher: mobile bottom repositioning (≤792px) — backup JS
 <script type="text/javascript">
 
 (function() {
@@ -66,11 +66,12 @@
     ls = document.querySelector('#trp-floater-ls');
     if (ls) reposition();
   }
-  
   window.addEventListener('resize', reposition);
   init();
   document.readyState === 'loading' && document.addEventListener('DOMContentLoaded', init);
   window.addEventListener('load', init);
-})();**/
+})();
+
+**/
 </script>
 
